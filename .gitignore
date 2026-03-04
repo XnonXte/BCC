@@ -65,3 +65,4 @@ Thumbs.db
 
 *.log
 test.cpp
+**/.cph/
