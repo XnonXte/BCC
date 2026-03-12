@@ -1,33 +1,22 @@
-// TODO: This code is inefficient, maybe remove the two while loops?
+// TODO: Fix WA
 
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
 
-    int n; cin >> n;
-    int k; cin >> k;
-    vector<int> v(n);
-    
-    int pos = 0;
-    int i = 1;
-    int j = 2;
+  int n;
+  cin >> n;
+  int k;
+  cin >> k;
 
-    while (i <= n) {
-        v[pos] = i;
-        i += 2;
-        pos++;
-    }
+  int numEven = (int)(n / 2);
+  int numOdd = n - numEven;
 
-    while (j <= n) {
-        v[pos] = j;
-        j += 2;
-        pos++;
-    }
+  cout << (k <= numOdd) ? (2 * (k - 1) + 1) : (2 * (k - numOdd));
+  cout << endl;
 
-    cout << v[k - 1] << endl;
-
-    return 0;
+  return 0;
 }
