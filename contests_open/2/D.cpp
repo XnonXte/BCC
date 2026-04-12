@@ -67,20 +67,22 @@ using namespace std;
 
 void solve() {
   II(n);
-  II(a);
-  II(b);
-  II(c);
-  VI v = {a, b, c};
-  int pos = 0;
-  int covered = 0;
-  int cnt = 0;
-  while (covered < n) {
-    if (pos > 2)
-      pos = 0;
-    covered += v[pos];
-    cnt++;
+  VI a(n);
+  CIVEC(a);
+  int cheap = a[0];
+  VI anomaly;
+  FOR(i, 1, n) {
+    if (a[i] >= cheap) {
+      anomaly.push_back(a[i]);
+    } else {
+      cheap = a[i];
+    }
   }
-  CO cnt << EN;
+  RSORT(anomaly);
+  int mid = SZ(anomaly) / 2;
+  int ans = 0;
+  FOR(i, 0, SZ(anomaly)) { ans += abs(anomaly[i] - anomaly[mid]); }
+  CO ans << EN;
 }
 
 signed main() {

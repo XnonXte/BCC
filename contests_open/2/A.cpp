@@ -65,32 +65,27 @@ using namespace std;
 
 #define MOD 1000000007
 
-long long numberOfDivisors(long long num) {
-  long long total = 1;
-  for (int i = 2; (long long)i * i <= num; i++) {
-    if (num % i == 0) {
-      int e = 0;
-      do {
-        e++;
-        num /= i;
-      } while (num % i == 0);
-      total *= e + 1;
-    }
-  }
-  if (num > 1) {
-    total *= 2;
-  }
-  return total;
-}
+bool comp(PII a, PII b) { return a.S < b.S; }
 
 void solve() {
   II(n);
-  CO numberOfDivisors(n) << EN;
+  V<PII> v(n);
+  FORE(i, v) CI i.F >> i.S;
+  sort(ALL(v), comp);
+  int ans = 1;
+  int r = v[0].S;
+  FOR(i, 0, n) {
+    if (v[i].F >= r) {
+      ans++;
+      r = v[i].S;
+    }
+  }
+  CO ans;
 }
 
 signed main() {
   BISMILLAHIRRAHMANIRRAHIM;
-  II(t);
-  while (t--)
-    solve();
+  //   II(t);
+  //   while (t--)
+  solve();
 }

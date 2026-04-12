@@ -65,24 +65,32 @@ using namespace std;
 
 #define MOD 1000000007
 
-int sumAllDivisors(int num) {
-  int sum = 0;
-  for (int i = 1; i <= sqrt(num); i++) {
-    int t1 = i * (num / i - i + 1);
-
-    int t2 = (((num / i) * (num / i + 1)) / 2) - ((i * (i + 1)) / 2);
-    sum += t1 + t2;
-  }
-  return sum;
-}
-
 void solve() {
   II(n);
-  CO sumAllDivisors(n) % MOD << EN;
+  VI v(n);
+  FOR(i, 0, n) {
+    II(tmp);
+    tmp %= MOD;
+    v[i] = tmp;
+  }
+  SORT(v);
+
+  VI a;
+  int target = v[0];
+  FOR(i, 1, n) {
+    if (v[i] % target == 0)
+      a.push_back(v[i]);
+  }
+
+  int res = 0;
+  FORE(x, a) { res = gcd(res, x); }
+
+  CO((res == target) ? "YES" : "NO") << EN;
 }
 
 signed main() {
   BISMILLAHIRRAHMANIRRAHIM;
-  // II(t); while(t--)
-  solve();
+  II(t);
+  while (t--)
+    solve();
 }
