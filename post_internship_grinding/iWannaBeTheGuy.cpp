@@ -1,21 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define FASTIO                                                                 \
-  ios_base::sync_with_stdio(false);                                            \
-  cin.tie(NULL);                                                               \
-  cout.tie(NULL)
+#define FASTIO ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 
 #define int long long
 #define EN "\n"
 #define CO cout <<
 #define CI cin >>
-#define II(x)                                                                  \
-  int x;                                                                       \
-  CI x
-#define SS(s)                                                                  \
-  string s;                                                                    \
-  CI s
+#define II(x) int x; CI x
+#define SS(s) string s; CI s
 #define FOR(i, start, n) for (int i = start; i < n; i++)
 #define RFOR(i, start, n) for (int i = start; i >= n; i--)
 #define FORE(i, x) for (auto &i : x)
@@ -29,15 +22,9 @@ using namespace std;
 #define CIVEC1(vec) FOR(i, 1, SZ(vec)) CI vec[i]
 #define CIVEC2(vec) FORE(i, vec) CIVEC(i)
 #define CIVEC21(vec) FOR(i, 1, SZ(vec)) CIVEC1(vec[i])
-#define COVEC(vec)                                                             \
-  FORE(i, vec) CO i << " ";                                                    \
-  CO EN
-#define COVEC1(vec)                                                            \
-  FOR(i, 1, SZ(vec)) CO vec[i] << " ";                                         \
-  CO EN
-#define COVECP(z)                                                              \
-  FOREP(x, y, z) CO x << " " << y << EN;                                       \
-  CO EN
+#define COVEC(vec) FORE(i, vec) CO i << " "; CO EN
+#define COVEC1(vec) FOR(i, 1, SZ(vec)) CO vec[i] << " "; CO EN
+#define COVECP(z) FOREP(x, y, z) CO x << " " << y << EN; CO EN
 #define COVEC2(vec) FORE(i, vec) COVEC(i)
 #define COVEC21(vec) FOR(i, 1, SZ(vec)) COVEC1(vec[i])
 #define FOUND(i, x) i.find(x) != i.end()
@@ -60,7 +47,28 @@ using namespace std;
 #define PQI PQ<int>
 #define MOD 1000000007
 
-void solve() {}
+void solve() {
+  II(n);
+  II(p);
+  VI a(p);
+  CIVEC(a);
+  II(q);
+  VI b(q);
+  CIVEC(b);
+
+  VI tmp(n);
+  FOR (i, 0, n) {
+    tmp[i] = i + 1;
+  }
+  SI res(ALL(a));
+  res.insert(ALL(b));
+
+  if (SZ(tmp) == SZ(res)) {
+    CO "I become the guy.";
+  } else {
+    CO "Oh, my keyboard!";
+  }
+}
 
 signed main() {
   FASTIO;
