@@ -16,7 +16,6 @@ using namespace std;
 #define SS(s)                                                                  \
   string s;                                                                    \
   CI s
-
 #define FOR(i, start, n) for (int i = start; i < n; i++)
 #define RFOR(i, start, n) for (int i = start; i >= n; i--)
 #define FORE(i, x) for (auto &i : x)
@@ -42,45 +41,54 @@ using namespace std;
 #define COVEC2(vec) FORE(i, vec) COVEC(i)
 #define COVEC21(vec) FOR(i, 1, SZ(vec)) COVEC1(vec[i])
 #define FOUND(i, x) i.find(x) != i.end()
-
 #define PB push_back
 #define EB emplace_back
-#define C char
 #define P pair
-#define B bool
 #define PII P<int, int>
 #define V vector
 #define VI V<int>
-#define VC V<C>
-#define VB V<B>
+#define VB V<bool>
 #define VVI V<V<int>>
-#define VVB V<V<B>>
+#define VVB V<V<bool>>
 #define VPII V<PII>
-#define FS first
-#define SC second
-
+#define F first
+#define S second
 #define M map
 #define MII M<int, int>
-#define S set
-#define SI S<int>
-#define SC S<C>
+#define SI set<int>
 #define PQ priority_queue
 #define PQI PQ<int>
-#define RPQI PQ<int, VI, greater<int>> pq;
-
 #define MOD 1000000007
 
-// int dx[] = {0, 0, +1, -1, -1, -1, +1, +1};
-// int dy[] = {+1, -1, 0, 0, -1, +1, -1, +1};
-// int dx[] = {0, 0, +1, -1};
-// int dy[] = {+1, -1, 0, 0};
-// int dx[] = {+1, 0};
-// int dy[] = {0, +1};
+bool isLuckyNumber(int x) {
+  string s = to_string(x);
+  V<char> tmp;
+  FORE(c, s) {
+    if (c == '4' || c == '7') {
+      tmp.push_back(c);
+    }
+  }
+  return s.length() == SZ(tmp);
+}
 
-void solve() {}
+void solve() {
+  SS(s);
+  int cnt = 0;
+  FORE(c, s) {
+    if (c == '4' || c == '7') {
+      cnt++;
+    }
+  }
+  CO(isLuckyNumber(cnt) ? "YES" : "NO");
+}
 
 signed main() {
   FASTIO;
-  // II(t); while(t--)
+  // II(t);
+  // while (t--)
   solve();
 }
+
+/*
+
+*/
