@@ -34,4 +34,4 @@ Or with flags:
 g++ -O2 -std=c++17 -o out filename.cpp
 ```
 
-All code is in C++.
+It is recommended to use the [CPH extension](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper) on VSCode - All code is in C++.
