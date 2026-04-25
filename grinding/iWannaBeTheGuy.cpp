@@ -55,15 +55,11 @@ void solve() {
   II(q);
   VI b(q);
   CIVEC(b);
-
-  VI tmp(n);
-  FOR (i, 0, n) {
-    tmp[i] = i + 1;
-  }
+  
   SI res(ALL(a));
   res.insert(ALL(b));
 
-  if (SZ(tmp) == SZ(res)) {
+  if (SZ(res) == n) {
     CO "I become the guy.";
   } else {
     CO "Oh, my keyboard!";
