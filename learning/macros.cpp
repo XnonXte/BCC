@@ -45,25 +45,20 @@ using namespace std;
 
 #define PB push_back
 #define EB emplace_back
-#define C char
 #define P pair
-#define B bool
 #define PII P<int, int>
 #define V vector
 #define VI V<int>
-#define VC V<C>
-#define VB V<B>
+#define VB V<bool>
 #define VVI V<V<int>>
-#define VVB V<V<B>>
+#define VVB V<V<bool>>
 #define VPII V<PII>
-#define FS first
-#define SC second
+#define F first
+#define S second
 
 #define M map
 #define MII M<int, int>
-#define S set
-#define SI S<int>
-#define SC S<C>
+#define SI set<int>
 #define PQ priority_queue
 #define PQI PQ<int>
 #define RPQI PQ<int, VI, greater<int>> pq;

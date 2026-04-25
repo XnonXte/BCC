@@ -30,8 +30,13 @@ g++ -o out filename.cpp
 ```
 
 Or with flags:
+
 ```bash
 g++ -O2 -std=c++17 -o out filename.cpp
 ```
 
 It is recommended to use the [CPH extension](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper) on VSCode - All code is in C++.
+
+## Snippets
+
+If you want to use the snippets I use, copy the content of [snippets.json](./snippets.json) into your VSCode's JSON file for C++.
