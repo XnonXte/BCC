@@ -16,7 +16,6 @@ using namespace std;
 #define SS(s)                                                                  \
   string s;                                                                    \
   CI s
-
 #define FOR(i, start, n) for (int i = start; i < n; i++)
 #define RFOR(i, start, n) for (int i = start; i >= n; i--)
 #define FORE(i, x) for (auto &i : x)
@@ -42,7 +41,6 @@ using namespace std;
 #define COVEC2(vec) FORE(i, vec) COVEC(i)
 #define COVEC21(vec) FOR(i, 1, SZ(vec)) COVEC1(vec[i])
 #define FOUND(i, x) i.find(x) != i.end()
-
 #define PB push_back
 #define EB emplace_back
 #define P pair
@@ -55,28 +53,59 @@ using namespace std;
 #define VPII V<PII>
 #define F first
 #define S second
-
 #define M map
 #define MII M<int, int>
 #define SI set<int>
 #define PQ priority_queue
 #define PQI PQ<int>
-#define RPQI PQ<int, VI, greater<int>> pq;
-
 #define MOD 1000000007
 
-// int dx[] = {0, 0, +1, -1, -1, -1, +1, +1};
-// int dy[] = {+1, -1, 0, 0, -1, +1, -1, +1};
-// int dx[] = {0, 0, +1, -1};
-// int dy[] = {+1, -1, 0, 0};
-// int dx[] = {+1, 0};
-// int dy[] = {0, +1};
+VI parent, length;
 
-void solve() {}
+void make_set(int v) {
+  parent[v] = v;
+  length[v] = 1;
+}
+
+int find_set(int v) {
+  if (v == parent[v])
+    return v;
+  return parent[v] = find_set(parent[v]);
+}
+
+void union_sets(int a, int b) {
+  a = find_set(a);
+  b = find_set(b);
+  if (a != b) {
+    if (length[a] < length[b])
+      swap(a, b);
+    parent[b] = a;
+    length[a] += length[b];
+  }
+}
+
+void solve() {
+  II(n);
+  parent.resize(n + 1);
+  length.resize(n + 1);
+  VI arr(n + 1);
+  V<char> color(n + 1);
+  VI total(n + 1);
+  FOR(i, 1, n + 1) {
+    cin >> arr[i];
+    make_set(i);
+  }
+  FOR(i, 1, n + 1) { cin >> color[i]; }
+  FOR(i, 1, n + 1) { union_sets(i, arr[i]); }
+  FOR(i, 1, n + 1) { total[find_set(i)] += color[i] == '1' ? 0 : 1; }
+  FOR(i, 1, n + 1) { CO total[find_set(i)] << " "; }
+  CO EN;
+}
 
 signed main() {
   FASTIO;
-  // II(t); while(t--)
+  // II(t);
+  // while (t--)
   solve();
 }
 
