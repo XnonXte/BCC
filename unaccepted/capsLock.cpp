@@ -70,17 +70,29 @@ using namespace std;
 // int dx[] = {0, 0, +1, -1};
 // int dy[] = {+1, -1, 0, 0};
 // int dx[] = {+1, 0};
-// int dy[] = {0, +1}
+// int dy[] = {0, +1};
+
+void invert(string &s) {
+  FORE(c, s) { c += ((c == toupper(c)) ? 32 : -32); }
+}
+
+string upper(string s) {
+  string tmp = s;
+  transform(ALL(tmp), tmp.begin(), ::toupper);
+  return tmp;
+}
+
+bool rule1(string s) { return s == upper(s); }
+
+bool rule2(string s) {
+  return s[0] != toupper(s[0]) && s.substr(1) == upper(s.substr(1));
+}
 
 void solve() {
   SS(s);
 
-  string tmp = s;
-  transform(ALL(tmp), tmp.begin(), ::toupper);
-  if ((s.compare(tmp) == 0) ||
-      (s[0] == tolower(s[0]) && s.substr(1).compare(tmp.substr(1)) == 0)) {
-    transform(ALL(s), s.begin(), ::tolower);
-    s[0] = toupper(s[0]);
+  if (rule1(s) || rule2(s)) {
+    invert(s);
   }
 
   CO s;
@@ -91,7 +103,3 @@ signed main() {
   // II(t); while(t--)
   solve();
 }
-
-/*
-WA
-*/
