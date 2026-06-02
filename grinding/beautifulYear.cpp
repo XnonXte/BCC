@@ -22,9 +22,12 @@ bool isDistinct(int x) {
 void solve() {
   int y;
   cin >> y;
-  do
+
+  do {
     y++;
+  }
   while (!isDistinct(y));
+
   cout << y << endl;
 }
 
